@@ -22,5 +22,5 @@
 #
 # m h  dom mon dow   command
 
-0 4 * * * sh file_backup.sh
+0 4 * * * sh /home/PLACEHOLDER/Scripts/file_backup.sh
 0 9 * * 0 apt update && apt upgrade --yes
