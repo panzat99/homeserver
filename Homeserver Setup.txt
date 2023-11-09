@@ -1,0 +1,32 @@
+Raspberry Pi / Homeserver Setup:
+
+1. Add newest version of syncthing to apt 
+   sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+   echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+2. sudo apt update && sudo apt upgrade
+3. sudo apt install syncthing wireguard ufw docker docker-compose
+4. Setup Syncthing
+5. Mount drives
+6. Setup wireguard
+   1. Turn off wireguard on server (wg-quick down wg0)
+   2. Delete wireguard peer on server
+   3. Activate IP forwarding by editing /etc/sysctl.conf and uncomment net.ipv4.ip_forward=1 (, net.ipv6.conf.all.forwarding=1 (optional))
+   3. Create private- and publickey: wg genkey | sudo tee privatekey | wg pubkey | sudo tee pubkey
+   4. Use template file for wireguard peer on Raspberry Pi / Homeserver
+   5. Add Peer on Server (wg set wg0 peer <pubkey_client> allowed-ips <client_internal_ip>)  
+   6. Start wireguard on client and then on server (wg-quick up wg0)
+7. Setup docker
+   1. Add docker group: sudo groupadd docker (might be already there)
+   2. Add docker to groups of user: sudo usermod -aG docker <user>#
+   3. Start docker as service on startup: sudo systemctl enable docker.service, sudo systemctl enable containerd.service, sudo systemctl start docker.service, sudo systemctl start containerd.servce
+   4. Reboot for groupadd to work
+   5. Pull github Docker repo
+   6. Add .env info
+   7. Clear old data
+   8. Start containers: docker-compose up -d
+   9. If containers don't work check if databases were initialized. If not run db first or create manually.
+8. Setup ufw  
+   1. Enable ufw start on systemstart: sudo systemctl enable ufw, sudo systemctl start ufw
+   2. Start ufw: sudo ufw enable
+   3. Add ports for Syncting, nextcloud, and vaultwarden, SSH
+9. Configure cronjobs
