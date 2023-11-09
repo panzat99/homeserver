@@ -12,4 +12,4 @@ dos2unix *.sh ./Scripts/*.sh ./Installscripts/*.sh
 chmod 700 *.sh ./Scripts/*.sh ./Installscripts/*.sh
 sudo sed -i "s/Include /etc/ssh/sshd_config.d/*.conf/#Include /etc/ssh/sshd_config.d/*.conf/g" /etc/ssh/sshd_config
 mv Scripts /home/$name/Scripts
-sh ./Installscripts/execute.sh
+sh ./Installscripts/execute.sh $name
