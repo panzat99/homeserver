@@ -12,9 +12,4 @@ dos2unix *.sh ./Scripts/*.sh ./Installscripts/*.sh
 chmod 700 *.sh ./Scripts/*.sh ./Installscripts/*.sh
 sudo sed -i "s/Include /etc/ssh/sshd_config.d/*.conf/#Include /etc/ssh/sshd_config.d/*.conf/g" /etc/ssh/sshd_config
 mv Scripts /home/$name/Scripts
-sh ./Installscripts/apt_snap_block.sh
-sh ./Installscripts/homeserver_setup_crontab.sh $name
-sh ./Installscripts/homeserver_setup_syncthing.sh $name
-sh ./Installscripts/homeserver_setup_wireguard.sh $name
-sh ./Installscripts/homeserver_setup_ufw.sh $name
-sh ./Installscripts/homeserver_setup_docker.sh $name
+sh ./Installscripts/execute.sh
