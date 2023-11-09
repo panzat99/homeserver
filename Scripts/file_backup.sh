@@ -6,4 +6,4 @@ chown -R PLACEHOLDER:PLACEHOLDER /home/PLACEHOLDER/Sync_backup
 sudo umount /home/PLACEHOLDER/Sync_backup
 rsync -ac --delete --update /home/PLACEHOLDER/Sync/* /docker/nc/data/backup/files
 chown -R www-data:www-data /docker/nc/data/backup/files/
-sh /home/PLACEHOLDER/database_update.sh backup
+sh /home/PLACEHOLDER/Scripts/database_update.sh backup
