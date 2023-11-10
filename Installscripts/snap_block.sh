@@ -9,8 +9,6 @@ sudo snap remove --purge snapd
 sudo apt remove --autoremove snpad
 #Above lines tested with Ubuntu Server 22.04.3 LTS
 touch nosnap.pref
-sudo echo "Package: snapd
-Pin: release a=*
-Pin-Priority: -10" > nosnap.pref
+sudo echo -e "Package: snapd\nPin: release a=*\nPin-Priority: -10" > nosnap.pref
 sudo mv nosnap.pref /etc/apt/preferences.d/
 sudo apt update
