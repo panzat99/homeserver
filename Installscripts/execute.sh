@@ -2,8 +2,8 @@
 
 sh ./Installscripts/ssh_config.sh
 sh ./Installscripts/snap_block.sh
-sh ./Installscripts/homeserver_setup_crontab.sh $1
-sh ./Installscripts/homeserver_setup_syncthing.sh $1
-sh ./Installscripts/homeserver_setup_wireguard.sh $1
-sh ./Installscripts/homeserver_setup_ufw.sh $1
-sh ./Installscripts/homeserver_setup_docker.sh $1
+sh ./Installscripts/crontab.sh $1
+sh ./Installscripts/syncthing.sh $1
+sh ./Installscripts/wireguard.sh $1
+sh ./Installscripts/ufw.sh $1
+sh ./Installscripts/docker.sh $1
