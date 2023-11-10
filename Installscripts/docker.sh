@@ -12,4 +12,3 @@ mv ./docker /home/$1/docker-server
 mv /home/$1/docker-server/env /home/$1/docker-server/.env
 chmod 600 /home/$1/docker-server/.env
 newgrp docker
-#Exit newgrp subshell, Edit .env file then start docker with docker-compose up -d
