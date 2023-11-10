@@ -1,9 +1,9 @@
 [Interface]
 PrivateKey = 
-Address = 10.0.0.2/24
+Address = *Wireguard HS IP*
 
 [Peer]
 PublicKey = 
 Endpoint = *Server IP and Listen Port*
-AllowedIPs = 10.0.0.1/24
+AllowedIPs = *Wireguard Server IP*
 PersistentKeepalive = 25
