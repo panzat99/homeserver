@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sh ./Installscripts/ssh_config.sh
 sh ./Installscripts/snap_block.sh
 sh ./Installscripts/homeserver_setup_crontab.sh $1
 sh ./Installscripts/homeserver_setup_syncthing.sh $1
