@@ -23,4 +23,6 @@
 # m h  dom mon dow   command
 
 0 4 * * * sh /home/PLACEHOLDER/Scripts/file_backup.sh
+0 */6 * * * sh /home/PLACEHOLDER/Scripts/database_update:sh backupt
+0 0 * * * rm -rf /home/PLACEHOLDER/.bash_history && history -c
 0 9 * * 0 apt update && apt upgrade --yes
