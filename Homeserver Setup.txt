@@ -25,6 +25,13 @@ Raspberry Pi / Homeserver Setup:
    7. Clear old data
    8. Start containers: docker-compose up -d
    9. If containers don't work check if databases were initialized. If not run db first or create manually.
+   10. For nextcloud config file include:
+      - 'overwriteprotocol' => 'https',
+      - 'forwarded_for_headers' =>
+           array (
+             0 => 'HTTP_X_FORWARDED_FOR',
+           ),
+      - Add www.tshfr.de as trusted domain
 8. Setup ufw  
    1. Enable ufw start on systemstart: sudo systemctl enable ufw, sudo systemctl start ufw
    2. Start ufw: sudo ufw enable
