@@ -8,3 +8,4 @@ chmod 700 ./Scripts/*.sh ./Installscripts/*.sh
 mv Scripts /home/$name/Scripts
 sudo apt remove --autoremove dos2unix --yes
 sh ./Installscripts/_execute.sh $name
+sh ./Installscripts/grub_config.sh
